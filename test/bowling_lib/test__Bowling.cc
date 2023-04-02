@@ -5,12 +5,15 @@
 class BowlGame
 {
   public:
-    bool is_started() const;
+    bool is_complete() const;
+    void record_ball(int const & num_pins);
+    void bowl_frame();
+    int get_score(); 
 };
 
-bool BowlGame::is_started() const
+bool BowlGame::is_complete() const
 {
-  return true;
+  return false;
 }
 
 TEST_CASE ("All pins are standing and no ball has been thrown")
@@ -23,10 +26,17 @@ TEST_CASE ("All pins are standing and no ball has been thrown")
 
   // Assert
 
-  REQUIRE(bg.is_started() == true);
+  REQUIRE(bg.is_complete() == false);
 }
 
-TEST_CASE("")
+TEST_CASE("All pins are standing and one ball has been thrown")
 {
-  
+  // Arrange
+  BowlGame bg;
+
+  // Act
+
+
+  // Assert
+  REQUIRE(bg.is_complete() == false); 
 }
